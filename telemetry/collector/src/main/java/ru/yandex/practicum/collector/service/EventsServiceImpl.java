@@ -1,7 +1,6 @@
 package ru.yandex.practicum.collector.service;
 
 import lombok.RequiredArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
 
 import org.springframework.stereotype.Service;
 
@@ -21,12 +20,12 @@ public class EventsServiceImpl implements EventsService {
 
     public void processHubEvent(HubEvent event) {
         HubEventAvro avroEvent = hubEventMapper.toAvro(event);
-        kafkaSender.send(avroEvent);
+        kafkaSender.sendAsync(avroEvent);
     }
 
 
     public void processSensorEvent(SensorEvent event) {
         SensorEventAvro avroEvent = sensorEventMapper.toAvro(event);
-        kafkaSender.send(avroEvent);
+        kafkaSender.sendAsync(avroEvent);
     }
 }

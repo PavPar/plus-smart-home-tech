@@ -24,13 +24,13 @@ public class EventsKafkaSender {
         this.hubEventsTopic = hubEventsTopic;
     }
 
-    public void send(SensorEventAvro sensorEventAvro) {
+    public void sendAsync(SensorEventAvro sensorEventAvro) {
         ProducerRecord<Void, SpecificRecordBase> record = new ProducerRecord<>(sensorEventsTopic, sensorEventAvro);
 
         kafkaProducer.send(record);
     }
 
-    public void send(HubEventAvro hubEventAvro) {
+    public void sendAsync(HubEventAvro hubEventAvro) {
         ProducerRecord<Void, SpecificRecordBase> record = new ProducerRecord<>(hubEventsTopic, hubEventAvro);
 
         kafkaProducer.send(record);

@@ -62,7 +62,7 @@ public class HubEventMapper {
 
             }
             default -> {
-                throw new IllegalArgumentException("Незветный тип" + event.getClass());
+                throw new IllegalArgumentException("Неизвестный тип события при HubEventMapper->toAvro: " + event.getClass());
             }
         }
 
