@@ -1,0 +1,22 @@
+package ru.yandex.practicum.collector.model.sensor;
+
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
+import lombok.experimental.SuperBuilder;
+
+@Getter
+@Setter
+@ToString(callSuper = true)
+@SuperBuilder(toBuilder = true)
+@NoArgsConstructor
+public class TemperatureSensorEvent extends SensorEvent {
+    private int temperatureC;
+    private int temperatureF;
+
+    @Override
+    public SensorEventType getType() {
+        return SensorEventType.TEMPERATURE_SENSOR_EVENT;
+    }
+}
